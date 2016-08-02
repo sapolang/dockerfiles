@@ -1,0 +1,23 @@
+FROM hub.c.163.com/nce2/ubuntu:16.04
+
+
+run echo "deb http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse \
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse \ 
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse \
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse \
+deb http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse \
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial main restricted universe multiverse \
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-security main restricted universe multiverse \
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse \
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse \
+deb-src http://mirrors.ustc.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse" > /etc/apt/sources.list
+
+
+ENV LC_ALL C.UTF-8
+
+run apt-get update && apt-get -y install python-software-properties  software-properties-common
+
+run add-apt-repository ppa:ondrej/php && apt-get update
+
+run apt-get install php5.6 -y nginx
+
