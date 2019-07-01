@@ -1,0 +1,12 @@
+FROM php:5.6-fpm
+
+#安装扩展
+
+#安装oracle扩展需要的文件
+COPY ./extensions/oci8 /opt/
+
+RUN apt-get update \
+  #安装oracle扩展, 如果不需要请注释掉
+  && sh /opt/install-oci8.sh \
+  && pecl install redis xdebug-2.4.0 \
+  && docker-php-ext-enable redis xdebug
