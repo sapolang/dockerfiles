@@ -1,4 +1,4 @@
-apt-get install libaio-dev -y
+apt-get install -y libaio-dev
 cd /opt
 tar -zxvf /opt/instantclient_18_5.tar.gz
 echo "/opt/instantclient_18_5" >> /etc/ld.so.conf.d/oracle-instantclient.conf
