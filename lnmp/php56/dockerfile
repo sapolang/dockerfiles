@@ -12,7 +12,7 @@ RUN \
   #安装gd库
   && apt-get install -y libfreetype6-dev libpng-dev libjpeg62-turbo-dev \
   && docker-php-ext-install -j$(nproc) gd \
-  && pecl install redis xdebug-2.4.0 \
-  && docker-php-ext-enable redis xdebug \
+  # && pecl install redis xdebug-2.4.0 \
+  # && docker-php-ext-enable redis xdebug \
   #安装oracle扩展, 如果不需要请注释掉
   && sh /opt/install-oci8.sh
